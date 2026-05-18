@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+
+data/
+*.tif
+*.shp
+*.dbf
+*.shx
+*.prj
+*.cpg
+*.sbn
+*.sbx
+*.xml
