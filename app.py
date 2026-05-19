@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import zipfile
-import requests
+import gdown
 
 # =========================================
 # PAGE CONFIG
@@ -69,12 +69,13 @@ if not os.path.exists(dem_path):
 
     st.info("Downloading DEM Jawa Barat...")
 
-    url = f"https://drive.google.com/uc?export=download&id={DEM_ID}"
+    url = f"https://drive.google.com/uc?id={DEM_ID}"
 
-    response = requests.get(url)
-
-    with open(dem_path, "wb") as f:
-        f.write(response.content)
+    gdown.download(
+        url,
+        dem_path,
+        quiet=False
+    )
 
 # =========================================
 # DOWNLOAD SHAPEFILE ZIP
@@ -84,12 +85,13 @@ if not os.path.exists(zip_path):
 
     st.info("Downloading batas kecamatan...")
 
-    url = f"https://drive.google.com/uc?export=download&id={SHP_ID}"
+    url = f"https://drive.google.com/uc?id={SHP_ID}"
 
-    response = requests.get(url)
-
-    with open(zip_path, "wb") as f:
-        f.write(response.content)
+    gdown.download(
+        url,
+        zip_path,
+        quiet=False
+    )
 
 # =========================================
 # EXTRACT ZIP
