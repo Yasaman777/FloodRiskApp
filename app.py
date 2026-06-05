@@ -27,6 +27,7 @@ h1, h2, h3 { color: #0f172a; }
 
 DEM_ID = "1Y23GSWnk8Rss0iFTc8ZwxN84j4dvfy4d"
 SHP_ID = "1EiZSbdr31IDsANsu8_mpjrRwdBWHIy8c"
+LULC_ID = "1d4BPrN-DzZZoDnIS_ICBiK7Nf-hwNeUz"
 
 os.makedirs("data", exist_ok=True)
 
@@ -39,6 +40,10 @@ clipped_path = "data/dem_clipped_temp.tif"
 if not os.path.exists(dem_path):
     st.info("Downloading DEM Jawa Barat...")
     gdown.download(f"https://drive.google.com/uc?id={DEM_ID}", dem_path, quiet=False)
+
+if not os.path.exists(lulc_path):
+    st.info("Downloading LULC Jawa Barat...")
+    gdown.download(f"https://drive.google.com/uc?id={LULC_ID}", lulc_path, quiet=False)
 
 if not os.path.exists(zip_path):
     st.info("Downloading batas kecamatan...")
